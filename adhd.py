@@ -108,41 +108,19 @@ class CustomScaler:
         self.fit(X)
         return self.transform(X)
 
-def load_model_and_scaler(model_type="naive_bayes", file_path="https://raw.githubusercontent.com/risya22008/mini-proyek-adhd/main/ADHD.xlsx"):
-    """
-    Fungsi untuk memuat dataset dari URL atau path lokal dan melatih model yang sesuai.
-
-    Args:
-        model_type (str): Jenis model yang akan digunakan (default: "naive_bayes").
-        file_path (str): Lokasi file dataset, bisa berupa URL atau path lokal.
-
-    Returns:
-        model (object): Model yang telah dilatih.
-        scaler (object): Scaler yang digunakan untuk normalisasi data.
-    """
-    # Cek apakah file_path adalah URL
-    if file_path.lower().startswith("http"):
-        try:
-            # Mendownload file dari URL
-            response = requests.get(file_path)
-            response.raise_for_status()  # Cek apakah ada error saat request
-            # Membaca dataset dari file yang diunduh
-            data = pd.read_excel(BytesIO(response.content))
-        except requests.exceptions.RequestException as e:
-            raise Exception(f"Gagal mengunduh dataset dari URL: {e}")
-    else:
-        # Cek apakah file lokal ada
-        if not os.path.exists(file_path):
-            raise FileNotFoundError(f"Dataset '{file_path}' tidak ditemukan.")
-        data = pd.read_excel(file_path)
-
+def load_model_and_scaler(model_type="naive_bayes", file_path="./ADHD.xlsx/"):
+    # Load dataset
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(f"Dataset '{file_path}' tidak ditemukan.")
+    
+    data = pd.read_excel(file_path)
+    
     # Pilih kolom yang relevan untuk pelatihan (input features dan target label)
     feature_columns = [
         'bdi1_total', 'audit1_total', 'aas1_total', 'asrs1_total.x', 'bai1_total'
     ]
     target_column = 'adhd_label'
     
-    # Ambil data fitur dan target
     X = data[feature_columns].values
     y = data[target_column].values
     
