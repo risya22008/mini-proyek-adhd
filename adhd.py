@@ -108,12 +108,14 @@ class CustomScaler:
         self.fit(X)
         return self.transform(X)
 
-def load_model_and_scaler(model_type="naive_bayes", file_path="./ADHD.xlsx/"):
+def load_model_and_scaler(model_type="naive_bayes", file_path="./ADHD.xlsx"):
+    base_dir = os.path.dirname(__file__)  # Mendapatkan direktori skrip yang dijalankan
+    full_file_path = os.path.join(base_dir, file_path)
     # Load dataset
-    if not os.path.exists(file_path):
+    if not os.path.exists(full_file_path):
         raise FileNotFoundError(f"Dataset '{file_path}' tidak ditemukan.")
     
-    data = pd.read_excel(file_path)
+    data = pd.read_excel(full_file_path)
     
     # Pilih kolom yang relevan untuk pelatihan (input features dan target label)
     feature_columns = [
