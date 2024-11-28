@@ -156,7 +156,7 @@ def save_input_to_csv(data, file_path):
 def main():
     st.set_page_config(page_title="ADHD Prediction App", layout="wide")
     
-    DATA_FILE = "adhd_data.csv"
+    DATA_FILE = "./adhd_data.csv"
     
     st.title("ADHD Prediction System")
     st.write("Please fill out the following questionnaires to assess ADHD likelihood.")
