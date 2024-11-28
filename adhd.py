@@ -108,7 +108,7 @@ class CustomScaler:
         self.fit(X)
         return self.transform(X)
 
-def load_model_and_scaler(model_type="naive_bayes", file_path="ADHD.xlsx"):
+def load_model_and_scaler(model_type="naive_bayes", file_path="https://raw.githubusercontent.com/risya22008/mini-proyek-adhd/main/ADHD.xlsx"):
     # Load dataset
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"Dataset '{file_path}' tidak ditemukan.")
