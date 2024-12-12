@@ -362,15 +362,14 @@ def main():
     # BAI Tab
     with tab5:
         st.header("Beck Anxiety Inventory (BAI)")
-        st.header("Beck Depression Inventory (BDI)")
         st.write("0: tidak ada")
         st.write("1: ringan")
         st.write("2: sedang")
         st.write("3: berat")
         bai_questions = [
             "Kekhawatiran", "Ketegangan", "Keringat Berlebihan", "Denyut Jantung Cepat",
-            "Kesulitan Bernafas", "Kelemahan", "Pusing", "Perasaan Sesak", "Gemetar",
-            "Berkeringat Berlebihan", "Mual", "Mimpi Buruk", "Ketegangan Otot",
+            "Kesulitan Bernafas", "Kelemahan", "Pusing", "Perasaan Sesak", "Gemetar", "Mual", "Mimpi Buruk", "Ketegangan Otot",
+            "Seberapa sering Anda merasa terlalu sensitif terhadap suara, cahaya, atau sentuhan?",
             "Seberapa sering Anda merasa gemetar atau bergetar?", "Seberapa sering Anda merasa sulit untuk bernapas (misalnya, sesak napas atau merasa seperti kehabisan udara)?",
             "Seberapa sering Anda merasa kepala Anda pusing atau seperti akan pingsan?", "Seberapa sering Anda merasa kesemutan atau mati rasa pada bagian tubuh tertentu?", 
             "Seberapa sering Anda merasa lemas atau kehilangan energi tiba-tiba?", "Seberapa sering Anda merasa mual atau sakit perut?", "Seberapa sering Anda merasa takut sesuatu yang buruk akan terjadi?",
