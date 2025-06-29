@@ -97,7 +97,7 @@ st.markdown("""
 
 # Custom ML Implementations
 class CustomKNN:
-    def _init_(self, k=5):
+    def __init__(self, k=5):
         self.k = k
 
     def fit(self, X, y):
@@ -129,7 +129,7 @@ class CustomKNN:
         return np.array(probabilities)
 
 class CustomGaussianNB:
-    def _init_(self):
+    def __init__(self):
         self.classes = None
         self.mean = None
         self.var = None
@@ -176,7 +176,7 @@ class CustomGaussianNB:
         return np.argmax(probs, axis=1)
 
 class CustomScaler:
-    def _init_(self):
+    def __init__(self):
         self.mean = None
         self.std = None
 
